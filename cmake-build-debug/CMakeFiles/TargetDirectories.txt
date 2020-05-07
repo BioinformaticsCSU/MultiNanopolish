@@ -1,0 +1,3 @@
+/Users/hukang/Cproject/nanopolish06/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/hukang/Cproject/nanopolish06/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/hukang/Cproject/nanopolish06/cmake-build-debug/CMakeFiles/nanopolish.dir

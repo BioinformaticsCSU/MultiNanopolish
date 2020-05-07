@@ -1,0 +1,1262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="nanopolish"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/hukang/Cproject/nanopolish06/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/hukang/Cproject/nanopolish06/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/hukang/Cproject/nanopolish06/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nanopolish">
+				<Option output="/Users/hukang/Cproject/nanopolish06/cmake-build-debug/nanopolish" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/hukang/Cproject/nanopolish06/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/fast5/include"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/fast5/src"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/htslib"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/htslib/cram"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/htslib/htslib"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/alignment"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/builtin_models"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/common"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/cuda_kernels"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/hmm"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/pore_model"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/test"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/thirdparty"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/thirdparty/scrappie"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 nanopolish"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nanopolish/fast">
+				<Option output="/Users/hukang/Cproject/nanopolish06/cmake-build-debug/nanopolish" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/hukang/Cproject/nanopolish06/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/fast5/include"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/fast5/src"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/htslib"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/htslib/cram"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/htslib/htslib"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/alignment"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/builtin_models"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/common"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/cuda_kernels"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/hmm"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/pore_model"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/test"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/thirdparty"/>
+					<Add directory="/Users/hukang/Cproject/nanopolish06/src/thirdparty/scrappie"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 nanopolish/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/hukang/Cproject/nanopolish06/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/Dockerfile">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/LICENSE">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/Makefile">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/README.md">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/docs/Makefile">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/docs/source/_static/nanopolish-workflow.png">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/docs/source/_static/quickstart_methylation_results.png">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/docs/source/conf.py">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/docs/source/debug.rst">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/docs/source/index.rst">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/docs/source/installation.rst">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/docs/source/manual.rst">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/docs/source/quickstart_call_methylation.rst">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/docs/source/quickstart_consensus.rst">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/docs/source/quickstart_eventalign.rst">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/etc/r9-models/r9.4_450bps.cpg.6mer.template.model">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/etc/r9-models/r9.4_450bps.nucleotide.5mer.template.model">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/etc/r9-models/r9.4_450bps.nucleotide.6mer.template.model">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/etc/r9-models/r9.4_70bps.u_to_t_rna.5mer.template.model">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/etc/r9-models/r9_250bps.cpg.6mer.template.model">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/etc/r9-models/r9_250bps.nucleotide.5mer.complement.pop1.model">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/etc/r9-models/r9_250bps.nucleotide.5mer.complement.pop2.model">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/etc/r9-models/r9_250bps.nucleotide.5mer.template.model">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/etc/r9-models/r9_250bps.nucleotide.6mer.complement.pop1.model">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/etc/r9-models/r9_250bps.nucleotide.6mer.complement.pop2.model">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/etc/r9-models/r9_250bps.nucleotide.6mer.template.model">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/Doxyfile">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/LICENSE">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/README.org">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/VERSION">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/Bit_Packer.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/Huffman_Packer.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/cwmap.fast5_ed_len_1.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/cwmap.fast5_ed_skip_1.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/cwmap.fast5_ev_move_1.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/cwmap.fast5_ev_rel_skip_1.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/cwmap.fast5_fq_bp_1.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/cwmap.fast5_fq_qv_1.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/cwmap.fast5_rw_1.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/fast5_version.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/hdf5_tools.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/include/fast5/logger.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/python/Makefile">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/python/bin/f5ls">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/python/bin/f5pack">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/python/fast5/fast5.pyx">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/python/setup.py">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/File_Packer.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/Makefile">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/f5-mod.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/f5dump.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/f5ls-full.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/f5ls.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/f5pack.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/hdf5-mod.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/huffman-decode.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/huffman-encode.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/hufftk">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/fast5/src/tmp.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/INSTALL">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/LICENSE">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/Makefile">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/NEWS">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/README">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/README.md">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/bgzf.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/bgzip.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/config.mk.in">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/configure.ac">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_codecs.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_codecs.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_decode.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_decode.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_encode.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_encode.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_external.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_index.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_index.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_io.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_io.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_samtools.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_samtools.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_stats.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_stats.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/cram_structs.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/files.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/mFILE.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/mFILE.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/misc.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/open_trace_file.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/open_trace_file.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/os.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/pooled_alloc.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/pooled_alloc.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/rANS_byte.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/rANS_static.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/rANS_static.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/sam_header.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/sam_header.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/string_alloc.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/string_alloc.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/vlen.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/vlen.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/zfio.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/cram/zfio.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/errmod.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/faidx.5">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/faidx.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/hfile.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/hfile_gcs.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/hfile_internal.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/hfile_libcurl.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/hfile_net.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/hfile_s3.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/hts.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/hts_internal.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htsfile.1">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htsfile.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib.mk">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib.pc.in">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/bgzf.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/cram.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/faidx.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/hfile.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/hts.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/hts_defs.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/hts_endian.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/kbitset.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/kfunc.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/khash.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/khash_str2int.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/klist.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/knetfile.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/kseq.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/ksort.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/kstring.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/regidx.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/sam.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/synced_bcf_reader.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/tbx.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/thread_pool.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/vcf.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/vcf_sweep.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib/vcfutils.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/htslib_vars.mk">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/kfunc.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/knetfile.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/kstring.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/md5.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/multipart.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/plugin.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/probaln.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/realn.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/regidx.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/sam.5">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/sam.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/synced_bcf_reader.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/tabix.1">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/tabix.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/tbx.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/auxf#values.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/auxf#values_java.cram">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/auxf.fa">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/auxf.fa.fai">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/bgziptest.txt">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/bgziptest.txt.gz">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/bgziptest.txt.gz.gzi">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c1#bounds.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c1#clip.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c1#noseq.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c1#pad1.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c1#pad2.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c1#pad3.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c1#unknown.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c1.fa">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c1.fa.fai">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c2#pad.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c2.fa">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/c2.fa.fai">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#1.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#2.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#5.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#5b.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#5b_java.cram">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#large_seq.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#supp.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#tag_depadded.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#tag_padded.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#unmap.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#unmap1.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce#unmap2.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce.fa">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/ce.fa.fai">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/compare_sam.pl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/cross_validate.sh">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/faidx.fa">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/fieldarith.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/fieldarith.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/formatcols.vcf">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/formatmissing-out.vcf">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/formatmissing.vcf">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/hfile.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/hts_endian.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/md#1.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/md.fa">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/md.fa.fai">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/noroundtrip-out.vcf">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/noroundtrip.vcf">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/sam.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/test-regidx.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/test-vcf-api.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/test-vcf-api.out">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/test-vcf-hdr-in.vcf">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/test-vcf-hdr.out">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/test-vcf-sweep.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/test-vcf-sweep.out">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/test.pl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/test_view.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/thrash_threads1.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/thrash_threads2.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/thrash_threads3.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/thrash_threads4.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/thrash_threads5.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/thrash_threads6.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#blank.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#large_aux.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#large_aux2.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#large_aux_java.cram">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#minimal.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#pair.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#repeated.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#rg.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#tlen.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#tlen2.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#triplet.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx#unsorted.sam">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx.fa">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/test/xx.fa.fai">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/textutils.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/thread_pool.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/thread_pool_internal.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/vcf.5">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/vcf.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/vcf_sweep.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/htslib/vcfutils.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/calculate_methylation_frequency.py">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/consensus-preprocess.pl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/consensus.make">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/convert_all_models.py">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/convert_model_to_header.py">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/dropmodel.py">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/extract_reads_aligned_to_region.py">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/import_ont_model.py">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/import_ont_models_from_dir.sh">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/nanopolish_makerange.py">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/nanopolish_merge.py">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/scripts/reestimate_polya_emissions.py">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/alignment/nanopolish_alignment_db.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/alignment/nanopolish_alignment_db.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/alignment/nanopolish_anchor.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/alignment/nanopolish_anchor.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/alignment/nanopolish_eventalign.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/alignment/nanopolish_eventalign.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_250bps_cpg_6mer_template_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_250bps_nucleotide_5mer_complement_pop1_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_250bps_nucleotide_5mer_complement_pop2_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_250bps_nucleotide_5mer_template_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_250bps_nucleotide_6mer_complement_pop1_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_250bps_nucleotide_6mer_complement_pop2_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_250bps_nucleotide_6mer_template_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_4_450bps_cpg_6mer_template_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_4_450bps_dam_6mer_template_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_4_450bps_dcm_6mer_template_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_4_450bps_nucleotide_5mer_template_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_4_450bps_nucleotide_6mer_template_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/builtin_models/r9_4_70bps_u_to_t_rna_5mer_template_model.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/alg.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/fs_support.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/fs_support.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/logger.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/logsum.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/logsum.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/logsumset.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_alphabet.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_alphabet.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_bam_processor.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_bam_processor.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_bam_utils.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_bam_utils.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_common.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_common.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_fast5_io.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_fast5_io.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_iupac.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_iupac.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_klcs.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_klcs.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_matrix.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_variant.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/nanopolish_variant.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/profiler.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/common/progress.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/cuda_kernels/GpuAligner.cu">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/cuda_kernels/GpuAligner.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/group_model/GroupTask.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/group_model/GroupTask.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/group_model/GroupsProcessor.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/group_model/GroupsProcessor.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/invgauss.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_duration_model.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_duration_model.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_emissions.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_hmm_input_sequence.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_profile_hmm.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_profile_hmm.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_profile_hmm_r7.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_profile_hmm_r7.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_profile_hmm_r7.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_profile_hmm_r9.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_profile_hmm_r9.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_profile_hmm_r9.inl">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_transition_parameters.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/hmm/nanopolish_transition_parameters.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/main/nanopolish.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_call_methylation.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_call_methylation.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_call_variants.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_call_variants.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_extract.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_extract.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_getmodel.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_getmodel.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_haplotype.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_haplotype.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_index.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_index.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_methyltrain.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_methyltrain.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_phase_reads.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_phase_reads.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_polya_estimator.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_polya_estimator.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_raw_loader.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_raw_loader.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_read_db.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_read_db.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_scorereads.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_scorereads.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_squiggle_read.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_squiggle_read.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_train_poremodel_from_basecalls.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_train_poremodel_from_basecalls.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_variant_db.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_variant_db.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_vcf2fasta.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/nanopolish_vcf2fasta.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/pore_model/nanopolish_builtin_models.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/pore_model/nanopolish_model_names.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/pore_model/nanopolish_model_names.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/pore_model/nanopolish_pore_model_set.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/pore_model/nanopolish_pore_model_set.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/pore_model/nanopolish_poremodel.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/pore_model/nanopolish_poremodel.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/test/catch.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/test/nanopolish_test.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/thirdparty/scrappie/event_detection.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/thirdparty/scrappie/event_detection.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/thirdparty/scrappie/scrappie_common.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/thirdparty/scrappie/scrappie_common.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/thirdparty/scrappie/scrappie_stdlib.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/thirdparty/scrappie/scrappie_structures.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/thirdparty/scrappie/sse_mathfun.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/thirdparty/scrappie/util.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/thirdparty/scrappie/util.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/thirdparty/stdaln.c">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/thirdparty/stdaln.h">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/training_core.cpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/src/training_core.hpp">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/test/data/LomanLabz_PC_Ecoli_K12_R7.3_2549_1_ch8_file30_strand.fast5">
+			<Option target="nanopolish"/>
+		</Unit>
+		<Unit filename="/Users/hukang/Cproject/nanopolish06/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
