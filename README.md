@@ -105,9 +105,3 @@ Then you can run nanopolish from the image:
 docker run -v /path/to/local/data/data/:/data/ -it :image_id  ./nanopolish eventalign -r /data/reads.fa -b /data/alignments.sorted.bam -g /data/ref.fa
 ```
 
-## Result
-
-MultiNanopolish speeds up the iterative calculation process almost 3 times and speeds up the
-whole program more than 2 times based on 40 thread mode comparing to the original Nanopolish.
-
-![MultiNanopolish experiment result](https://github.com/BoredMa/MultiNanopolish/blob/master/test/performance.png)
