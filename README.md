@@ -32,7 +32,7 @@ You can download and compile the latest code from github as follows:
 
 ```
 git clone --recursive https://github.com/BioinformaticsCSU/MultiNanopolish.git
-cd nanopolish
+cd MultiNanopolish
 make clean
 make
 ```
