@@ -74,11 +74,11 @@ bwa mem -x ont2d -t 8 draft.fa reads.fa | samtools sort -o reads.sorted.bam -T r
 samtools index reads.sorted.bam
 ```
 
-Now, we use nanopolish to compute the consensus sequence (the genome is polished in 50kb blocks and there will be one output file per block). We'll run this in parallel (Note that you can add `--optimization-calculation` parameter to auto-optimize the running time according to the number of tasks in MultiNanopolish):
+Now, we use nanopolish to compute the consensus sequence (the genome is polished in 50kb blocks and there will be one output file per block).
 
 ```
 python3 nanopolish_makerange.py draft.fa | parallel --results nanopolish.results -P 8 \
-    nanopolish variants --consensus -o polished.{1}.vcf -w {1} -r reads.fa -b reads.sorted.bam -g draft.fa -t 4 --min-candidate-frequency 0.1 --optimization-calculation
+    nanopolish variants --consensus -o polished.{1}.vcf -w {1} -r reads.fa -b reads.sorted.bam -g draft.fa -t 4 --min-candidate-frequency 0.1
 ```
 
 This command will run the consensus algorithm on eight 50kbp segments of the genome at a time, using 4 threads each. Change the ```-P``` and ```--threads``` options as appropriate for the machines you have available.
