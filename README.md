@@ -1,27 +1,26 @@
-# MultiNanopolish
+# Nanopolish
 
-Nanopolish is a software package for signal-level analysis of Oxford Nanopore sequencing data. Nanopolish can calculate an improved consensus sequence for a draft genome assembly, detect base modifications, call SNPs and indels with respect to a reference genome and more (see [Nanopolish](https://github.com/jts/nanopolish) for more details).
+[![Build Status](https://travis-ci.org/jts/nanopolish.svg?branch=master)](https://travis-ci.org/jts/nanopolish)
 
-We present an efficient  implementation of Nanopolish, called MultiNanopolish. MultiNanopolish use a different iterative calculation strategy to reduce redundant calculations.  We propose an abstract concept, namely independent computing unit(GroupTask) which can be distributed to the thread pool for multi-thread concurrent computing.
+Software package for signal-level analysis of Oxford Nanopore sequencing data. Nanopolish can calculate an improved consensus sequence for a draft genome assembly, detect base modifications, call SNPs and indels with respect to a reference genome and more (see Nanopolish modules, below).
 
-Code compilation and dependencies are the same as nanopolish.
+## Release notes
+
+* 0.10.2: added new program `nanopolish polya` to estimate the length of poly-A tails on direct RNA reads (by @paultsw)
+
+* 0.10.1: `nanopolish variants --consensus` now only outputs a VCF file instead of a fasta sequence. The VCF file describes the changes that need to be made to turn the draft sequence into the polished assembly. A new program, `nanopolish vcf2fasta`, is provided to generate the polished genome (this replaces `nanopolish_merge.py`, see usage instructions below). This change is to avoid issues when merging segments that end on repeat boundaries (reported by Michael Wykes and Chris Wright).
 
 ## Dependencies
 
 A compiler that supports C++11 is needed to build nanopolish. Development of the code is performed using [gcc-4.8](https://gcc.gnu.org/gcc-4.8/).
 
-By default, nanopolish will download and compile all of its required dependencies. Some users however may want to use system-wide versions of the libraries. To turn off the automatic installation of dependencies set `HDF5=noinstall`, `EIGEN=noinstall`, `HTS=noinstall` or `MINIMAP2=noinstall` parameters when running `make` as appropriate. The current versions and compile options for the dependencies are:
+By default, nanopolish will download and compile all of its required dependencies. Some users however may want to use system-wide versions of the libraries. To turn off the automatic installation of dependencies set `HDF5=noinstall`, `EIGEN=noinstall` or `HTS=noinstall` parameters when running `make` as appropriate. The current versions and compile options for the dependencies are:
 
 * [libhdf5-1.8.14](http://www.hdfgroup.org/HDF5/release/obtain5.html) compiled with multi-threading support `--enable-threadsafe`
 * [eigen-3.2.5](http://eigen.tuxfamily.org)
-* [htslib-1.4](http://github.com/samtools/htslib)
-* [minimap2-d2de282](http://github.com/lh3/minimap2)
+* [htslib-1.4](http://github.com/samtools/htslib) 
 
-In order to use the additional python3 scripts within `/scripts`, install the dependencies via
-
-```
-pip install -r scripts/requirements.txt --user
-```
+Additionally the helper `scripts` require [biopython](http://www.biopython.org) and [pysam](http://pysam.readthedocs.io/en/latest/installation.html).
 
 
 ## Installation instructions
@@ -31,9 +30,19 @@ pip install -r scripts/requirements.txt --user
 You can download and compile the latest code from github as follows:
 
 ```
-git clone --recursive https://github.com/BioinformaticsCSU/MultiNanopolish.git
-cd MultiNanopolish
-make clean
+git clone --recursive https://github.com/jts/nanopolish.git
+cd nanopolish
+make
+```
+
+### Installing a particular release
+
+When major features have been added or bugs fixed, we will tag and release a new version of nanopolish. If you wish to use a particular version, you can checkout the tagged version before compiling:
+
+```
+git clone --recursive https://github.com/jts/nanopolish.git
+cd nanopolish
+git checkout v0.9.2
 make
 ```
 
@@ -74,11 +83,11 @@ bwa mem -x ont2d -t 8 draft.fa reads.fa | samtools sort -o reads.sorted.bam -T r
 samtools index reads.sorted.bam
 ```
 
-Now, we use nanopolish to compute the consensus sequence (the genome is polished in 50kb blocks and there will be one output file per block). We'll run this in parallel (Note that you can add `--optimization-calculation` parameter to auto-optimize the running time according to the number of tasks in MultiNanopolish):
+Now, we use nanopolish to compute the consensus sequence (the genome is polished in 50kb blocks and there will be one output file per block). We'll run this in parallel:
 
 ```
-python3 nanopolish_makerange.py draft.fa | parallel --results nanopolish.results -P 8 \
-    nanopolish variants --consensus -o polished.{1}.vcf -w {1} -r reads.fa -b reads.sorted.bam -g draft.fa -t 4 --min-candidate-frequency 0.1 --optimization-calculation
+python nanopolish_makerange.py draft.fa | parallel --results nanopolish.results -P 8 \
+    nanopolish variants --consensus -o polished.{1}.vcf -w {1} -r reads.fa -b reads.sorted.bam -g draft.fa -t 4 --min-candidate-frequency 0.1
 ```
 
 This command will run the consensus algorithm on eight 50kbp segments of the genome at a time, using 4 threads each. Change the ```-P``` and ```--threads``` options as appropriate for the machines you have available.
@@ -105,3 +114,13 @@ Then you can run nanopolish from the image:
 docker run -v /path/to/local/data/data/:/data/ -it :image_id  ./nanopolish eventalign -r /data/reads.fa -b /data/alignments.sorted.bam -g /data/ref.fa
 ```
 
+## GPU acceleration
+
+The nanopolish consensus improvement algorithm can be performed faster using CUDA-enabled GPU acceleration. This is an experimental feature, to try this feature run with the `--gpu` flag e.g:
+```
+nanopolish variants --consensus polished_gpu.fa -w "tig00000001:200000-230000" -r reads.fasta -b reads.sorted.bam -g draft.fa --threads=8 --gpu=1
+```
+
+## Credits and Thanks
+
+The fast table-driven logsum implementation was provided by Sean Eddy as public domain code. This code was originally part of [hmmer3](http://hmmer.janelia.org/). Nanopolish also includes code from Oxford Nanopore's [scrappie](https://github.com/nanoporetech/scrappie) basecaller. This code is licensed under the MPL.

@@ -14,6 +14,7 @@
 #include <assert.h>
 #include <math.h>
 #include <sys/time.h>
+#include <ctime>
 #include <algorithm>
 #include <queue>
 #include <sstream>
@@ -45,8 +46,10 @@
 #include "group_model/GroupsProcessor.h"
 
 #include <hmm/nanopolish_profile_hmm_r9.h>
+#include <random>
+#include <pthread.h>
 
-#define  MAX_NUM_WORKERS 40
+//#define  MAX_NUM_WORKERS 40
 // Macros
 #define max3(x,y,z) std::max(std::max(x,y), z)
 
@@ -96,6 +99,7 @@ static const char *CONSENSUS_USAGE_MESSAGE =
     "      --genotype=FILE                  call genotypes for the variants in the vcf FILE\n"
     "  -o, --outfile=FILE                   write result to FILE [default: stdout]\n"
     "  -t, --threads=NUM                    use NUM threads (default: 1)\n"
+    "      --optimization-calculation       use more threads to calculate when there are more tasks\n"
     "  -m, --min-candidate-frequency=F      extract candidate variants from the aligned reads when the variant frequency is at least F (default 0.2)\n"
     "  -d, --min-candidate-depth=D          extract candidate variants from the aligned reads when the depth is at least D (default: 20)\n"
     "  -x, --max-haplotypes=N               consider at most N haplotype combinations (default: 1000)\n"
@@ -125,6 +129,7 @@ namespace opt
     static double min_candidate_frequency = 0.2f;
     static int min_candidate_depth = 20;
     static int calculate_all_support = false;
+    static int optimization_calculation = false;
     static int snps_only = 0;
     static int show_progress = 0;
     static int num_threads = 1;
@@ -153,6 +158,7 @@ enum { OPT_HELP = 1,
        OPT_PROGRESS,
        OPT_SNPS_ONLY,
        OPT_CALC_ALL_SUPPORT,
+       OPT_OPTIMIZATION_CALCULATION,
        OPT_CONSENSUS,
        OPT_GPU,
        OPT_FIX_HOMOPOLYMERS,
@@ -199,6 +205,7 @@ static const struct option longopts[] = {
     { "faster",                    no_argument,       NULL, OPT_FASTER },
     { "fix-homopolymers",          no_argument,       NULL, OPT_FIX_HOMOPOLYMERS },
     { "calculate-all-support",     no_argument,       NULL, OPT_CALC_ALL_SUPPORT },
+    { "optimization-calculation",  no_argument,       NULL, OPT_OPTIMIZATION_CALCULATION },
     { "snps",                      no_argument,       NULL, OPT_SNPS_ONLY },
     { "progress",                  no_argument,       NULL, OPT_PROGRESS },
     { "help",                      no_argument,       NULL, OPT_HELP },
@@ -1494,7 +1501,7 @@ Haplotype call_haplotype_from_candidates(const AlignmentDB& alignments,
 GroupsProcessor call_haplotype_from_group_candidates(const AlignmentDB& alignments, uint32_t alignment_flags,
         GroupsProcessor& processor){
     /*1.push runningQueueSize GroupTask into processor.runningQueue*/
-    int runningQueueSize = 8;
+    int runningQueueSize = 32;
     {
         int size = runningQueueSize < processor.totalQueue.size() ? runningQueueSize : processor.totalQueue.size();
         for(int i=0; i<size; i++){
@@ -1690,9 +1697,219 @@ GroupsProcessor call_haplotype_from_group_candidates(const AlignmentDB& alignmen
 }
 
 
+GroupsProcessor call_haplotype_from_all_group_candidates(const AlignmentDB& alignments, uint32_t alignment_flags,
+                                                     GroupsProcessor& processor, size_t openmp_workers){
+    omp_set_num_threads(openmp_workers);
+
+    time_t start;
+    start = time(NULL);
+    /*1.push runningQueueSize GroupTask into processor.runningQueue*/
+    {
+        int size = processor.totalQueue.size();
+        for(int i=0; i<size; i++){
+            if(processor.totalQueue.size() != 0){
+                processor.runningQueue.push_back(processor.totalQueue.front());
+                processor.totalQueue.pop();
+            }
+        }
+    }
+
+    std::map<std::string, GroupTask> groupTask_by_key;
+    //int round = 0;
+    while(processor.runningQueue.size() > 0 || processor.totalQueue.size() > 0){
+        //if(round >= opt::max_rounds) break;
+        //std::cout << "round=" << round << std::endl;
+
+        /*2.reconstruct group by filtered_variants
+        prepare data for score_variant_group*/
+        VariantDB variant_db;
+        std::vector<size_t> group_ids;
+        for(GroupTask& task : processor.runningQueue){
+            std::sort(task.m_candidate_variants.begin(), task.m_candidate_variants.end(), sortByPosition);
+            // Initialize a new group of variants
+            size_t group_id = variant_db.add_new_group(task.m_candidate_variants);
+            group_ids.push_back(group_id);
+
+            VariantGroup &variantGroup = variant_db.get_group(group_id);
+            Haplotype &haplotype = task.m_calling_haplotype;
+            std::vector<HMMInputData> &input = task.m_event_sequences;
+            score_variant_group(variantGroup,
+                                haplotype,
+                                input,
+                                opt::max_haplotypes,
+                                opt::ploidy,
+                                opt::genotype_only,
+                                alignment_flags,
+                                opt::methylation_types);
+        }
+
+
+        //std::cout << "variant_db groups=" << variant_db.get_num_groups() << std::endl;
+        /*3.judge if group's variant set changed*/
+        std::vector<GroupTask>::iterator it = processor.runningQueue.begin();
+        for(size_t gi = 0;gi < group_ids.size(); gi++) {
+            //std::cout << "gi=" << gi << std::endl;
+            //std::cout << "candidate variants size=" << variant_db.get_group(group_ids[gi]).get_num_variants() << std::endl;
+            Haplotype derived_haplotype(alignments.get_region_contig(), alignments.get_region_start(), alignments.get_reference());
+            //check out variant group get scores correctly
+            std::vector<Variant> called_variants = simple_call(variant_db.get_group(group_ids[gi]), opt::ploidy, opt::genotype_only);
+            //std::cout << "called variants size=" << called_variants.size() << std::endl;
+            //std::cout << "last round variant keys size=" << it->m_last_round_variant_keys.size() << std::endl;
+            // annotate each SNP variant with support fractions for the alternative bases
+            if(opt::calculate_all_support) {
+                annotate_variants_with_all_support(called_variants, alignments, opt::min_flanking_sequence, alignment_flags);
+            }
+            // Apply them to the final haplotype
+            for(size_t vi = 0; vi < called_variants.size(); vi++) {
+                derived_haplotype.apply_variant(called_variants[vi]);
+            }
+            called_variants = derived_haplotype.get_variants();
+            bool variant_set_changed = called_variants.size() != it->m_last_round_variant_keys.size();
+            //std::cout << "variant_set_changed=" << variant_set_changed << std::endl;
+            for(auto& v : called_variants) {
+                v.is_called = true;
+                if(it->m_last_round_variant_keys.find(v.key()) == it->m_last_round_variant_keys.end()) {
+                    variant_set_changed = true;
+                }
+                it->m_this_round_variant_keys.insert(v.key());
+            }
+            it->m_last_round_variant_keys = it->m_this_round_variant_keys;
+
+            auto pos = groupTask_by_key.find(it->key());
+            if(pos == groupTask_by_key.end()){
+                groupTask_by_key.insert(std::make_pair(it->key(), *it));
+            }else{
+                pos->second = *it;
+            }
+
+            if(variant_set_changed && it->m_compute_round < opt::max_rounds) {
+                it->m_candidate_variants = expand_variants(alignments,
+                                                           called_variants,
+                                                           0,
+                                                           0,
+                                                           alignment_flags);
+                it->m_compute_round++;
+                ++it;
+            } else {
+                it->m_candidate_variants = called_variants;
+                it->m_called_variants = it->m_candidate_variants;
+                it->m_status = TaskStatus::finished;
+                //remove from runningQueue, add to finishedQueue.
+                // taskQueue pop another one,and run it
+                GroupTask t = *it;
+                processor.finishedQueue.push_back(t);
+                it = processor.runningQueue.erase(it);
+            }
+        }
+        while(processor.totalQueue.size() > 0){
+            processor.runningQueue.push_back(processor.totalQueue.front());
+            processor.totalQueue.pop();
+        }
+
+        /*1.prepare data for screen_variants_by_score
+        * Filter the variant set down by only including those that individually contribute a positive score
+        */
+        std::vector<Variant> candidate_variants;
+        for(GroupTask& groupTask : processor.runningQueue){
+            std::vector<Variant>& group_candidate_variants = groupTask.m_candidate_variants;
+            for(Variant v : group_candidate_variants){
+                candidate_variants.push_back(v);
+            }
+        }
+        //std::cout << "here candidate_variants size=" << candidate_variants.size() << std::endl;
+
+        std::vector<Variant> filtered_variants;
+
+        filtered_variants = screen_variants_by_score(alignments,
+                                                     candidate_variants,
+                                                     alignment_flags);
+
+
+        /*4.divided filtered variants into groups,filter groups, replace processor.runningQueue with that. */
+        Haplotype derived_haplotype(alignments.get_region_contig(), alignments.get_region_start(), alignments.get_reference());
+        std::vector<GroupTask> filter_group;
+        size_t curr_variant_idx = 0;
+        while(curr_variant_idx < filtered_variants.size()) {
+            // Group the variants that are within calling_span bases of each other
+            size_t end_variant_idx = curr_variant_idx + 1;
+            while(end_variant_idx < filtered_variants.size()) {
+                int distance = filtered_variants[end_variant_idx].ref_position -
+                               filtered_variants[end_variant_idx - 1].ref_position;
+                if(distance > opt::min_distance_between_variants)
+                    break;
+                end_variant_idx++;
+            }
+            size_t num_variants = end_variant_idx - curr_variant_idx;
+
+            std::vector<Variant> tmp_variants(filtered_variants.begin() + curr_variant_idx,
+                                              filtered_variants.begin() + end_variant_idx);
+
+
+            int calling_start = tmp_variants[0].ref_position - opt::min_flanking_sequence;
+            Variant end_variant = tmp_variants[tmp_variants.size()-1];
+            int calling_end = end_variant.ref_position + end_variant.ref_seq.length() + opt::min_flanking_sequence;
+            int calling_size = calling_end - calling_start;
+            // Only try to call if the window is not too large
+            if(calling_size <= 200) {
+                // Subset the haplotype to the region we are calling
+                Haplotype calling_haplotype =
+                        derived_haplotype.substr_by_reference(calling_start, calling_end);
+
+                // Get the events for the calling region
+                std::vector<HMMInputData> event_sequences =
+                        alignments.get_event_subsequences(alignments.get_region_contig(), calling_start, calling_end);
+
+                if(event_sequences.size() == 0){
+                    curr_variant_idx = end_variant_idx;
+                    continue;
+                }
+
+                GroupTask groupTask(TaskStatus::ready, calling_haplotype, event_sequences, tmp_variants);
+                filter_group.push_back(groupTask);
+            }
+            // advance to start of next region
+            curr_variant_idx = end_variant_idx;
+        }
+        processor.runningQueue = filter_group;
+        //round++;
+        //generate new groups
+        for(GroupTask& task : processor.runningQueue){
+            auto pos = groupTask_by_key.find(task.key());
+            if(pos != groupTask_by_key.end()){
+                task.m_last_round_variant_keys = pos->second.m_last_round_variant_keys;
+                task.m_this_round_variant_keys = pos->second.m_this_round_variant_keys;
+            }else{
+                //this group is new group, loop it's all variants to find called variants
+                std::set<std::string> called_variant_keys;
+                for(Variant& v : task.m_candidate_variants){
+                    if(v.is_called){
+                        called_variant_keys.insert(v.key());
+                    }
+                }
+                task.m_last_round_variant_keys = called_variant_keys;
+                task.m_this_round_variant_keys = called_variant_keys;
+            }
+        }
+    }
+    double thread_cost = time(NULL) - start;
+    //std::cout << "thread cost time:" << thread_cost << "s" << std::endl;
+    return processor;
+}
+
+std::string getTime()
+{
+    time_t timep;
+    time (&timep);
+    char tmp[64];
+    strftime(tmp, sizeof(tmp), "%Y-%m-%d %H:%M:%S",localtime(&timep) );
+    return tmp;
+}
+
 Haplotype call_group_variants_for_region(const std::string& contig, int region_start, int region_end)
 {
     //cudaDeviceSetLimit(cudaLimitMallocHeapSize, 128 * 10 * 1024 * 1024);
+    time_t start,end,end1,end2,end3;
+    start = time(NULL);
 
     const int BUFFER = opt::min_flanking_sequence + 10;
     uint32_t alignment_flags = HAF_ALLOW_PRE_CLIP | HAF_ALLOW_POST_CLIP;
@@ -1729,6 +1946,8 @@ Haplotype call_group_variants_for_region(const std::string& contig, int region_s
     } else {
         candidate_variants = read_variants_for_region(opt::candidates_file, contig, region_start, region_end);
     }
+    end = time(NULL);
+    //std::cout <<"阶段1:"<< (end-start) << "s" << std::endl;
     /*clock_t startTime,endTime;
     startTime = clock();
     std::cout << "before single base" << std::endl;*/
@@ -1752,7 +1971,8 @@ Haplotype call_group_variants_for_region(const std::string& contig, int region_s
         candidate_variants.insert(candidate_variants.end(), dedup_set.begin(), dedup_set.end());
         std::sort(candidate_variants.begin(), candidate_variants.end(), sortByPosition);
     }
-
+    end1 = time(NULL);
+    //std::cout<<"阶段2:"<<(end1-end) << "s" <<std::endl;
     /*std::cout << "after single base" << std::endl;
     endTime = clock();
     std::cout << "Total Time : " <<(double)(endTime - startTime) / CLOCKS_PER_SEC << "s" << std::endl;*/
@@ -1760,6 +1980,8 @@ Haplotype call_group_variants_for_region(const std::string& contig, int region_s
                                alignments.get_region_start(),
                                alignments.get_reference());
 
+    std::string time2 = getTime();
+    //std::cout << "阶段3开始时间：" << time2 << std::endl;
     if(opt::consensus_mode) {
 
        /* 1. we try to apply filter to candidate variants
@@ -1817,13 +2039,26 @@ Haplotype call_group_variants_for_region(const std::string& contig, int region_s
         }
 
 
-        std::cout << "初始分组个数=" << filter_group.size() <<std::endl;
+        //std::cout << "初始分组个数=" << filter_group.size() <<std::endl;
 
         /*2.create a threadpool, every thread got a name GroupsProcessor.
         a GroupsProcessor take 8 group to process at a time, and it loops until group not change any more*/
-        size_t num_workers = (opt::num_threads < MAX_NUM_WORKERS) ? opt::num_threads : MAX_NUM_WORKERS;
+        int MAX_NUM_WORKERS = std::thread::hardware_concurrency();
+        size_t num_workers = opt::num_threads;
+        size_t openmp_workers = MAX_NUM_WORKERS;
+        /*if (opt::optimization_calculation){
+            int thread_scale = filter_group.size()/500 <= 0 ? 1 : filter_group.size()/500;
+            openmp_workers *= thread_scale;
+            num_workers *= thread_scale;
+        }*/
+        num_workers = (num_workers < MAX_NUM_WORKERS) ? num_workers : MAX_NUM_WORKERS;
+        //openmp_workers = (openmp_workers < MAX_NUM_WORKERS) ? openmp_workers : MAX_NUM_WORKERS;
         std::vector<GroupsProcessor> processors(num_workers);
         std::vector<std::future<GroupsProcessor>> handles(num_workers);
+
+        //shuffle filter group
+        /*auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+        std::shuffle(filter_group.begin(), filter_group.end(), std::default_random_engine(seed));*/
 
         //Initialise the workers
         for (int workerIdx = 0; workerIdx < num_workers; workerIdx++) {
@@ -1833,10 +2068,11 @@ Haplotype call_group_variants_for_region(const std::string& contig, int region_s
             }
 
             handles[workerIdx] = std::async(std::launch::async,
-                                            call_haplotype_from_group_candidates,
+                                            call_haplotype_from_all_group_candidates,
                                             std::ref(alignments),
                                             alignment_flags,
-                                            std::ref(processor));
+                                            std::ref(processor),
+                                            openmp_workers);
 
             //std::cout << "first-->线程" << workerIdx << "的total queue大小:" << processor.totalQueue.size() << std::endl;
         }
@@ -1875,7 +2111,10 @@ Haplotype call_group_variants_for_region(const std::string& contig, int region_s
                                                           candidate_variants,
                                                           alignment_flags);
     }
-
+    end2 = time(NULL);
+    //std::cout<< "segments=" << region_start << "-" << region_end <<", 阶段3:"<<(end2-end1) << "s" <<std::endl;
+    time2 = getTime();
+    //std::cout << "阶段3结束时间：" << time2 << std::endl;
     return called_haplotype;
 }
 
@@ -1976,6 +2215,7 @@ void parse_call_variants_options(int argc, char** argv)
 	case OPT_GENOTYPE: opt::genotype_only = 1; arg >> opt::candidates_file; break;
 	case OPT_MODELS_FOFN: arg >> opt::models_fofn; break;
 	case OPT_CALC_ALL_SUPPORT: opt::calculate_all_support = 1; break;
+	case OPT_OPTIMIZATION_CALCULATION: opt::optimization_calculation = 1; break;
 	case OPT_SNPS_ONLY: opt::snps_only = 1; break;
 	case OPT_PROGRESS: opt::show_progress = 1; break;
 	case OPT_P_SKIP: arg >> g_p_skip; break;
