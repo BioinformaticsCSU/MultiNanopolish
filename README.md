@@ -4,7 +4,7 @@ Nanopolish is a software package for signal-level analysis of Oxford Nanopore se
 
 We present an efficient  implementation of Nanopolish, called MultiNanopolish. MultiNanopolish use a different iterative calculation strategy to reduce redundant calculations.  We propose an abstract concept, namely independent computing unit(GroupTask) which can be distributed to the thread pool for multi-thread concurrent computing.
 
-Code compilation and dependencies are the same as nanopolish.
+Code compilation and dependencies are the same as Nanopolish, and it is used in exactly the same way as Nanopolish. Next, installation instructions are provided. We refer to Nanopolish's README.
 
 ## Dependencies
 
